@@ -6,16 +6,15 @@ def changeText(text):
 def mostCommon(text, lenght = 0):
     most_common = []
     qty_most_common = 0
+    
     for item in text:
         if len(item) > lenght:
             qty = text.count(item)
-        if qty < 2: 
-            break
-        if qty > qty_most_common:
-            qty_most_common = qty
-            most_common = [item]
-        elif qty == qty_most_common:
-            most_common.append(item)
+            if qty > qty_most_common and qty > 2:
+                qty_most_common = qty
+                most_common = [item]
+            elif qty == qty_most_common:
+                most_common.append(item)
             
     return list(set(most_common))
 
