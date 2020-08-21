@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "1f333678-dc16-44ba-954c-eb05cfb21834",
+		"name": "task 8.6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a68dca32-e061-4844-8a5f-fa0b8834c0be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Session token exists\", function () {\r",
+							"    pm.expect(pm.cookies.has(\"Session\")).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"type": "text"
+						},
+						{
+							"key": "pass",
+							"value": "{{pass}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}login",
+					"host": [
+						"{{URL}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80807128-9c03-40db-bd28-bd7b2d18cbd5",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.variables.set(\"petId\", jsonData.pets[0].id);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}api/pets?filter=my_pets",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"pets"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "my_pets"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "874bf411-061f-41eb-82af-87e4aeea14fe",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Change name\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"name\", \"{{petname}}\");\r",
+							"});\r",
+							"pm.test(\"Change type\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"animal_type\", \"{{pettype}}\");\r",
+							"});\r",
+							"pm.test(\"Change age\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"age\", \"{{petage}}\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{petname}}",
+							"type": "text"
+						},
+						{
+							"key": "animal_type",
+							"value": "{{pettype}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{petage}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}api/pets/{{petId}}",
+					"host": [
+						"{{URL}}api"
+					],
+					"path": [
+						"pets",
+						"{{petId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "617d6333-a1e9-4d67-b193-ff085238e3e0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}logout",
+					"host": [
+						"{{URL}}logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9bba1805-77a3-4a86-a839-6e2d417e5f7d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "31e1fc1b-03d2-4731-b04e-8e251bf6f24f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "29c13b49-c11c-4d48-bacf-58c92cfa748f",
+			"key": "email",
+			"value": "testingqap@gmail.com"
+		},
+		{
+			"id": "2851fa3f-9c22-4317-b129-babde0dd6852",
+			"key": "pass",
+			"value": "Test318946QAP"
+		},
+		{
+			"id": "db10788d-fcb1-4886-948a-1a74572968cc",
+			"key": "URL",
+			"value": "http://petfriends1.herokuapp.com/"
+		},
+		{
+			"id": "b04e2251-9cbd-4444-9662-9c766770c32f",
+			"key": "petname",
+			"value": ""
+		},
+		{
+			"id": "d14d7bb3-44f3-4ecd-84ca-2a99fa3698c0",
+			"key": "pettype",
+			"value": ""
+		},
+		{
+			"id": "3d19f44e-3993-497c-9fe4-aae1e338423d",
+			"key": "petage",
+			"value": ""
+		},
+		{
+			"id": "6ca9d52c-aa5e-404b-8152-4944edfe4959",
+			"key": "petId",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}

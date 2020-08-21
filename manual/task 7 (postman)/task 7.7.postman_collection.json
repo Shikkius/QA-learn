@@ -1,0 +1,1556 @@
+{
+	"info": {
+		"_postman_id": "13cf9b6d-eb44-4e80-aa70-3f414f8c01a5",
+		"name": "task 7.7",
+		"description": "https://pairwise.teremokgames.com/pzf0/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testing filter 1/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0abdc3ad-4cbc-4f3f-bdd0-d428599fb30f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH",
+						"type": "text"
+					},
+					{
+						"key": "Referer",
+						"value": "http://130.193.37.179/app/pets",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&species__name=%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0&breed__code=pitbull&gender__code=m&age=2",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0"
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull"
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m"
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 2/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e5442a0a-7a08-4b7a-a769-03da0ba81b43",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&species__name=%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0&breed__code=dachshund&gender__code=f&age=2",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0"
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса"
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "f"
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 3/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b4d627f-50e8-4b10-959d-2814bf047d49",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&species__name=%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0&gender__code=m",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0"
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m"
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 4/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ccc26c2-ff52-40fd-aeeb-b77ab945074b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&breed__code=siberian_cat&gender__code=m&age=2",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка"
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m"
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 5/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7b9bbf2-288f-4301-8ccd-44b88e49a9ce",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Стафорд\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&breed__code=stafford&gender__code=f",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд"
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "f"
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 6/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6ef7bb7b-36dd-4f76-8551-3c09f7969f94",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&age=1",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1"
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 7/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8375bf0-28c2-4c6b-9112-d3c4f33a9893",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&breed__code=cockatiel&gender__code=m",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла"
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m"
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 8/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "67b53c11-f315-46f9-b049-4f688704bb49",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&breed__code=german_shepherd&gender__code=m&age=0",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка"
+						},
+						{
+							"key": "gender__code",
+							"value": "m"
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0"
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 9/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "991ba591-35be-4036-88cc-d816f509fcce",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&breed__code=pitbull&age=2",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull"
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 10/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1730a88f-7c04-4891-b478-3d374ac212e7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&species__name=%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0&breed__code=german_shepherd&gender__code=m&age=0",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0"
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка"
+						},
+						{
+							"key": "gender__code",
+							"value": "m"
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0"
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 11/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b9200634-c3b1-429e-a2ce-5008c149af66",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&species__name=%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0&gender__code=f&age=2",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0"
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "f"
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testing filter 12/12",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb07e008-0d41-4c75-90f7-f34427c77a96",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Вывод карточки фильтра\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.count).to.be.above(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "csrftoken=7l35Bb1llVpIgV6FiEguSsa2iPY2D9a3JHqxe88WRCDpcTgUfiqVrRlGlR3n4tmH"
+					},
+					{
+						"key": "Referer",
+						"type": "text",
+						"value": "http://130.193.37.179/app/pets"
+					}
+				],
+				"url": {
+					"raw": "http://{{serverIP}}/api/pet/?page=1&page_size=6&species__name=%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0&breed__code=dachshund",
+					"protocol": "http",
+					"host": [
+						"{{serverIP}}"
+					],
+					"path": [
+						"api",
+						"pet",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "page_size",
+							"value": "6"
+						},
+						{
+							"key": "species__name",
+							"value": "%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0"
+						},
+						{
+							"key": "breed__code",
+							"value": "pitbull",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "dachshund",
+							"description": "такса"
+						},
+						{
+							"key": "breed__code",
+							"value": "siberian_cat",
+							"description": "сибирская кошка",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "stafford",
+							"description": "стаффорд",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "cockatiel",
+							"description": "корелла",
+							"disabled": true
+						},
+						{
+							"key": "breed__code",
+							"value": "german_shepherd",
+							"description": "немецкая овчарка",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "m",
+							"disabled": true
+						},
+						{
+							"key": "gender__code",
+							"value": "f",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "age",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a7ad2c52-b0a2-403d-92e7-071f472193d2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ee895a72-a658-4e62-9209-b8e101bed52f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8cc56bfb-6776-4583-9e21-b5b26989985a",
+			"key": "serverIP",
+			"value": "130.193.37.179"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
